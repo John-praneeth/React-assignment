@@ -95,10 +95,10 @@ function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
         </div>
       </header>
 
-      <div className="flex">
+      <div className="flex h-screen">
         {/* Sidebar */}
-        <aside className="w-60 bg-gray-100 border-r border-gray-300">
-          <div className="p-4">
+        <aside className="w-60 bg-gray-100 border-r border-gray-300 flex flex-col">
+          <div className="flex-1 p-4">
             <nav>
               <ul className="space-y-2">
                 {menuItems.map((item) => {
@@ -123,7 +123,7 @@ function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
             </nav>
           </div>
 
-          <div className="absolute bottom-4 left-4 right-4">
+          <div className="p-4 border-t border-gray-300">
             <button
               onClick={onLogout}
               className="w-full flex items-center justify-center px-3 py-2 text-sm bg-red-600 text-white border border-red-700 hover:bg-red-700"
@@ -135,7 +135,7 @@ function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-6 bg-white">
+        <main className="flex-1 p-6 bg-white overflow-y-auto">
           {/* Stats Overview */}
           <div className="mb-6">
             <h2 className="text-lg font-bold text-gray-800 mb-4 border-b border-gray-300 pb-2">Dashboard Overview</h2>
