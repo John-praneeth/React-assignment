@@ -1,247 +1,235 @@
 import React, { useState } from 'react';
-import { 
-  LogOut, 
-  Home, 
-  FileText, 
-  Settings, 
-  CreditCard, 
-  Car, 
-  Building, 
-  User
+import {
+    LogOut,
+    Home,
+    FileText,
+    Settings,
+    CreditCard,
+    Car,
+    Building,
+    User
 } from 'lucide-react';
+import './DashboardPage.css';
 
 interface DashboardPageProps {
-  onLogout: () => void;
+    onLogout: () => void;
 }
 
 function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
-  const [activeTab, setActiveTab] = useState('dashboard');
+    const [activeTab, setActiveTab] = useState<string>('dashboard');
 
-  const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: Home },
-    { id: 'applications', label: 'My Applications', icon: FileText },
-    { id: 'settings', label: 'Settings', icon: Settings },
-  ];
+    const menuItems = [
+        { id: 'dashboard', label: 'Dashboard', icon: Home },
+        { id: 'applications', label: 'My Applications', icon: FileText },
+        { id: 'settings', label: 'Settings', icon: Settings },
+    ];
 
-  const services = [
-    {
-      title: 'Apply for Aadhaar Card',
-      description: 'Apply for new Aadhaar or update existing information',
-      icon: CreditCard,
-      status: 'Available'
-    },
-    {
-      title: 'Driving License',
-      description: 'Apply for new license or renew existing license',
-      icon: Car,
-      status: 'Available'
-    },
-    {
-      title: 'Property Registration',
-      description: 'Register property documents and land records',
-      icon: Building,
-      status: 'Available'
-    },
-    {
-      title: 'Passport Services',
-      description: 'Apply for new passport or renewal services',
-      icon: User,
-      status: 'Coming Soon'
-    },
-    {
-      title: 'Voter ID Card',
-      description: 'Apply for voter registration and ID card',
-      icon: CreditCard,
-      status: 'Available'
-    },
-    {
-      title: 'Income Tax Services',
-      description: 'File income tax returns and view tax history',
-      icon: FileText,
-      status: 'Available'
-    },
-    {
-      title: 'Birth Certificate',
-      description: 'Apply for birth certificate or corrections',
-      icon: FileText,
-      status: 'Available'
-    },
-    {
-      title: 'Marriage Certificate',
-      description: 'Register marriage and obtain certificate',
-      icon: User,
-      status: 'Available'
-    }
-  ];
+    const services = [
+        {
+            title: 'Apply for Aadhaar Card',
+            description: 'Apply for new Aadhaar or update existing information',
+            icon: CreditCard,
+            status: 'Available'
+        },
+        {
+            title: 'Driving License',
+            description: 'Apply for new license or renew existing license',
+            icon: Car,
+            status: 'Available'
+        },
+        {
+            title: 'Property Registration',
+            description: 'Register property documents and land records',
+            icon: Building,
+            status: 'Available'
+        },
+        {
+            title: 'Passport Services',
+            description: 'Apply for new passport or renewal services',
+            icon: User,
+            status: 'Coming Soon'
+        },
+        {
+            title: 'Voter ID Card',
+            description: 'Apply for voter registration and ID card',
+            icon: CreditCard,
+            status: 'Available'
+        },
+        {
+            title: 'Income Tax Services',
+            description: 'File income tax returns and view tax history',
+            icon: FileText,
+            status: 'Available'
+        },
+        {
+            title: 'Birth Certificate',
+            description: 'Apply for birth certificate or corrections',
+            icon: FileText,
+            status: 'Available'
+        },
+        {
+            title: 'Marriage Certificate',
+            description: 'Register marriage and obtain certificate',
+            icon: User,
+            status: 'Available'
+        }
+    ];
 
-  const recentActivities = [
-    { title: 'Aadhaar Application Submitted', date: '2024-12-01', status: 'In Progress' },
-    { title: 'Property Registration Completed', date: '2024-11-28', status: 'Completed' },
-    { title: 'Driving License Application', date: '2024-11-25', status: 'Under Review' },
-  ];
+    const recentActivities = [
+        { title: 'Aadhaar Application Submitted', date: '2024-12-01', status: 'In Progress' },
+        { title: 'Property Registration Completed', date: '2024-11-28', status: 'Completed' },
+        { title: 'Driving License Application', date: '2024-11-25', status: 'Under Review' },
+    ];
 
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-gray-800 text-white px-6 py-3 border-b-2 border-gray-700">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <h1 className="text-xl font-bold">Government of India - CitizenPortal</h1>
-          </div>
-          <div className="flex items-center space-x-4">
-            <span className="text-sm">Welcome, John Praneeth</span>
-            <span className="text-xs text-gray-300">ID: CID123456</span>
-          </div>
-        </div>
-      </header>
-
-      <div className="flex h-screen">
-        {/* Sidebar */}
-        <aside className="w-60 bg-gray-100 border-r border-gray-300 flex flex-col">
-          <div className="flex-1 p-4">
-            <nav>
-              <ul className="space-y-2">
-                {menuItems.map((item) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <li key={item.id}>
-                      <button
-                        onClick={() => setActiveTab(item.id)}
-                        className={`w-full flex items-center px-3 py-2 text-left text-sm border ${
-                          activeTab === item.id
-                            ? 'bg-blue-100 border-blue-300 text-blue-800'
-                            : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
-                        }`}
-                      >
-                        <IconComponent className="mr-3 h-4 w-4" />
-                        {item.label}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
-          </div>
-
-          <div className="p-4 border-t border-gray-300">
-            <button
-              onClick={onLogout}
-              className="w-full flex items-center justify-center px-3 py-2 text-sm bg-red-600 text-white border border-red-700 hover:bg-red-700"
-            >
-              <LogOut className="mr-2 h-4 w-4" />
-              Logout
-            </button>
-          </div>
-        </aside>
-
-        {/* Main Content */}
-        <main className="flex-1 p-6 bg-white overflow-y-auto">
-          {/* Stats Overview */}
-          <div className="mb-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4 border-b border-gray-300 pb-2">Dashboard Overview</h2>
-            <div className="grid grid-cols-4 gap-4">
-              <div className="bg-gray-50 border border-gray-300 p-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-800">12</div>
-                  <div className="text-sm text-gray-600">Total Applications</div>
+    return (
+        <div className="dashboard-container">
+            {/* Header */}
+            <header className="dashboard-header">
+                <div className="header-title-container">
+                    <h1 className="header-title">Government of India - CitizenPortal</h1>
                 </div>
-              </div>
-              <div className="bg-gray-50 border border-gray-300 p-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">8</div>
-                  <div className="text-sm text-gray-600">Completed</div>
+                <div className="header-user-info">
+                    <span className="user-name">Welcome, John Praneeth</span>
+                    <span className="user-id">ID: CID123456</span>
                 </div>
-              </div>
-              <div className="bg-gray-50 border border-gray-300 p-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-600">3</div>
-                  <div className="text-sm text-gray-600">Pending</div>
-                </div>
-              </div>
-              <div className="bg-gray-50 border border-gray-300 p-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">5</div>
-                  <div className="text-sm text-gray-600">This Month</div>
-                </div>
-              </div>
-            </div>
-          </div>
+            </header>
 
-          {/* Services Section */}
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
-            {/* Available Services */}
-            <div className="lg:col-span-3">
-              <h3 className="text-lg font-bold text-gray-800 mb-4 border-b border-gray-300 pb-2">
-                Available Services
-              </h3>
-              
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {services.map((service, index) => {
-                  const IconComponent = service.icon;
-                  return (
-                    <div key={index} className="bg-white border-2 border-gray-300 hover:border-blue-400 cursor-pointer">
-                      <div className="p-4">
-                        <div className="flex items-center mb-2">
-                          <IconComponent className="h-5 w-5 text-blue-600 mr-2" />
-                          <span className={`text-xs px-2 py-1 border ${
-                            service.status === 'Available' 
-                              ? 'border-green-500 bg-green-50 text-green-700' 
-                              : 'border-yellow-500 bg-yellow-50 text-yellow-700'
-                          }`}>
-                            {service.status}
-                          </span>
-                        </div>
-                        <h4 className="font-semibold text-sm text-gray-900 mb-2">
-                          {service.title}
-                        </h4>
-                        <p className="text-xs text-gray-600 mb-3">
-                          {service.description}
-                        </p>
-                        <button className="w-full text-xs bg-blue-600 text-white py-2 px-3 hover:bg-blue-700 border border-blue-700">
-                          Apply Now →
+            <div className="dashboard-body">
+                {/* Sidebar */}
+                <aside className="dashboard-sidebar">
+                    <div className="sidebar-nav">
+                        <nav>
+                            <ul className="nav-list">
+                                {menuItems.map((item) => {
+                                    const IconComponent = item.icon;
+                                    return (
+                                        <li key={item.id}>
+                                            <button
+                                                onClick={() => setActiveTab(item.id)}
+                                                className={`nav-button ${activeTab === item.id ? 'active' : ''}`}
+                                            >
+                                                <IconComponent className="nav-icon" />
+                                                {item.label}
+                                            </button>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div className="sidebar-footer">
+                        <button
+                            onClick={onLogout}
+                            className="logout-button"
+                        >
+                            <LogOut className="logout-icon" />
+                            Logout
                         </button>
-                      </div>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
+                </aside>
 
-            {/* Recent Activity */}
-            <div className="lg:col-span-1">
-              <h3 className="text-lg font-bold text-gray-800 mb-4 border-b border-gray-300 pb-2">
-                Recent Activity
-              </h3>
-              
-              <div className="bg-gray-50 border border-gray-300">
-                <div className="p-4">
-                  {recentActivities.map((activity, index) => (
-                    <div key={index} className="mb-4 last:mb-0 pb-3 last:pb-0 border-b last:border-b-0 border-gray-300">
-                      <p className="text-sm font-medium text-gray-900 mb-1">
-                        {activity.title}
-                      </p>
-                      <p className="text-xs text-gray-500 mb-2">
-                        {activity.date}
-                      </p>
-                      <span className={`text-xs px-2 py-1 border ${
-                        activity.status === 'Completed' 
-                          ? 'border-green-500 bg-green-50 text-green-700'
-                          : activity.status === 'In Progress'
-                          ? 'border-blue-500 bg-blue-50 text-blue-700'
-                          : 'border-yellow-500 bg-yellow-50 text-yellow-700'
-                      }`}>
-                        {activity.status}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                {/* Main Content */}
+                <main className="dashboard-main">
+                    {activeTab === 'dashboard' && (
+                        <>
+                            {/* Stats Overview */}
+                            <div className="section-container">
+                                <h2 className="section-title">Dashboard Overview</h2>
+                                <div className="stats-grid">
+                                    <div className="stat-card">
+                                        <div className="stat-value">12</div>
+                                        <div className="stat-label">Total Applications</div>
+                                    </div>
+                                    <div className="stat-card">
+                                        <div className="stat-value text-green">8</div>
+                                        <div className="stat-label">Completed</div>
+                                    </div>
+                                    <div className="stat-card">
+                                        <div className="stat-value text-orange">3</div>
+                                        <div className="stat-label">Pending</div>
+                                    </div>
+                                    <div className="stat-card">
+                                        <div className="stat-value text-blue">5</div>
+                                        <div className="stat-label">This Month</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="content-grid">
+                                {/* Services Section */}
+                                <div>
+                                    <h3 className="section-title">Available Services</h3>
+
+                                    <div className="services-grid">
+                                        {services.map((service, index) => {
+                                            const IconComponent = service.icon;
+                                            const statusClass = service.status === 'Available' ? 'status-available' : 'status-coming-soon';
+
+                                            return (
+                                                <div key={index} className="service-card">
+                                                    <div className="service-header">
+                                                        <IconComponent className="service-icon" />
+                                                        <span className={`status-badge ${statusClass}`}>
+                                                            {service.status}
+                                                        </span>
+                                                    </div>
+                                                    <h4 className="service-title">
+                                                        {service.title}
+                                                    </h4>
+                                                    <p className="service-desc">
+                                                        {service.description}
+                                                    </p>
+                                                    <button className="apply-button">
+                                                        Apply Now →
+                                                    </button>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+
+                                {/* Recent Activity */}
+                                <div>
+                                    <h3 className="section-title">Recent Activity</h3>
+
+                                    <div className="activity-card">
+                                        <div className="activity-list">
+                                            {recentActivities.map((activity, index) => {
+                                                let statusClass = 'status-review';
+                                                if (activity.status === 'Completed') statusClass = 'status-completed';
+                                                if (activity.status === 'In Progress') statusClass = 'status-progress';
+
+                                                return (
+                                                    <div key={index} className="activity-item">
+                                                        <p className="activity-title">
+                                                            {activity.title}
+                                                        </p>
+                                                        <p className="activity-date">
+                                                            {activity.date}
+                                                        </p>
+                                                        <span className={`status-badge ${statusClass}`}>
+                                                            {activity.status}
+                                                        </span>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                    )}
+                    {activeTab !== 'dashboard' && (
+                        <div style={{ textAlign: 'center', padding: '2rem', color: '#6b7280' }}>
+                            <h2>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Module</h2>
+                            <p>This module is currently under development.</p>
+                        </div>
+                    )}
+                </main>
             </div>
-          </div>
-        </main>
-      </div>
-    </div>
-  );
+        </div>
+    );
 }
 
 export default DashboardPage;
