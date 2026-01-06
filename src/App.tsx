@@ -6,17 +6,17 @@ import './App.css';
 type Page = 'login' | 'dashboard';
 
 function App(): React.ReactElement {
-  const [currentPage, setCurrentPage] = useState<Page>('login');
+    const [currentPage, setCurrentPage] = useState<Page>('login');
 
-  return (
-    <>
-      {currentPage === 'login' ? (
-        <LoginPage onLogin={() => setCurrentPage('dashboard')} />
-      ) : (
-        <DashboardPage onLogout={() => setCurrentPage('login')} />
-      )}
-    </>
-  );
+    return (
+        <>
+            {currentPage === 'login' ? (
+                <LoginPage onLogin={() => setCurrentPage('dashboard')} />
+            ) : (
+                <DashboardPage onLogout={() => setCurrentPage('login')} />
+            )}
+        </>
+    );
 }
 
 export default App;
