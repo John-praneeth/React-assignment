@@ -1,7 +1,7 @@
 /* Layout */
 .dashboard-container {
     min-height: 100vh;
-    background-color: white;
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
 }
@@ -15,10 +15,10 @@
 
 /* Header */
 .dashboard-header {
-    background-color: #1f2937;
+    background-color: #4a6fa5;
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-bottom: 2px solid #374151;
+    padding: 12px 15px;
+    border-bottom: 1px solid #333;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,31 +27,32 @@
 }
 
 .header-title {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: bold;
     margin: 0;
 }
 
 .header-user-info {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .user-name {
-    font-size: 0.875rem;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .user-id {
-    font-size: 0.75rem;
-    color: #d1d5db;
+    font-size: 11px;
+    color: #ccc;
 }
 
 /* Sidebar */
 .dashboard-sidebar {
-    width: 15rem;
-    background-color: #f3f4f6;
-    border-right: 1px solid #d1d5db;
+    width: 180px;
+    background-color: #e8e8e8;
+    border-right: 1px solid #999;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -59,7 +60,7 @@
 
 .sidebar-nav {
     flex: 1;
-    padding: 1rem;
+    padding: 10px;
 }
 
 .nav-list {
@@ -68,41 +69,36 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 2px;
 }
 
 .nav-button {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 0.5rem 0.75rem;
+    padding: 8px 10px;
     text-align: left;
-    font-size: 0.875rem;
-    border: 1px solid #d1d5db;
+    font-size: 13px;
+    border: 1px solid #999;
     background: white;
-    color: #374151;
+    color: #333;
     cursor: pointer;
 }
 
 .nav-button:hover {
-    background-color: #f9fafb;
+    background-color: #f5f5f5;
 }
 
 .nav-button.active {
-    background-color: #dbeafe;
-    border-color: #93c5fd;
-    color: #1e40af;
-}
-
-.nav-icon {
-    margin-right: 0.75rem;
-    height: 1rem;
-    width: 1rem;
+    background-color: #d0d8e8;
+    border-color: #4a6fa5;
+    color: #333;
+    font-weight: bold;
 }
 
 .sidebar-footer {
-    padding: 1rem;
-    border-top: 1px solid #d1d5db;
+    padding: 10px;
+    border-top: 1px solid #999;
 }
 
 .logout-button {
@@ -110,90 +106,86 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-    background-color: #dc2626;
+    padding: 6px 10px;
+    font-size: 12px;
+    background-color: #cc3333;
     color: white;
-    border: 1px solid #b91c1c;
+    border: 1px solid #aa2222;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .logout-button:hover {
-    background-color: #b91c1c;
-}
-
-.logout-icon {
-    margin-right: 0.5rem;
-    height: 1rem;
-    width: 1rem;
+    background-color: #aa2222;
 }
 
 /* Main Content */
 .dashboard-main {
     flex: 1;
-    padding: 1.5rem;
+    padding: 15px;
     background-color: white;
     overflow-y: auto;
 }
 
 /* Stats */
 .section-title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #d1d5db;
-    padding-bottom: 0.5rem;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
     margin-top: 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .stat-card {
-    background-color: #f9fafb;
-    border: 1px solid #d1d5db;
-    padding: 1rem;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 12px;
     text-align: center;
 }
 
 .stat-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1f2937;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
 }
 
 .stat-label {
-    font-size: 0.875rem;
-    color: #4b5563;
+    font-size: 11px;
+    color: #666;
 }
 
 .text-green {
-    color: #16a34a;
+    color: #006600;
 }
 
 .text-orange {
-    color: #ea580c;
+    color: #cc6600;
 }
 
 .text-blue {
-    color: #2563eb;
+    color: #0066cc;
 }
 
 /* Grid for Services and Activity */
 .content-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 15px;
 }
 
 @media (min-width: 1024px) {
     .content-grid {
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: 2fr 1fr;
     }
 }
 
@@ -201,7 +193,7 @@
 .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 8px;
 }
 
 @media (min-width: 640px) {
@@ -216,97 +208,87 @@
     }
 }
 
-@media (min-width: 1280px) {
-    .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
 .service-card {
     background-color: white;
-    border: 2px solid #d1d5db;
+    border: 1px solid #ccc;
     cursor: pointer;
-    padding: 1rem;
-    transition: border-color 0.2s;
+    padding: 10px;
 }
 
 .service-card:hover {
-    border-color: #60a5fa;
+    border-color: #4a6fa5;
+    background-color: #f8f8f8;
 }
 
 .service-header {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.service-icon {
-    height: 1.25rem;
-    width: 1.25rem;
-    color: #2563eb;
-    margin-right: 0.5rem;
+    justify-content: flex-end;
+    margin-bottom: 8px;
 }
 
 .status-badge {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 10px;
+    padding: 2px 6px;
     border: 1px solid;
+    font-weight: bold;
 }
 
 .status-available {
-    border-color: #22c55e;
-    background-color: #f0fdf4;
-    color: #15803d;
+    border-color: #006600;
+    background-color: #ccffcc;
+    color: #006600;
 }
 
 .status-coming-soon {
-    border-color: #eab308;
-    background-color: #fefce8;
-    color: #a16207;
+    border-color: #cc6600;
+    background-color: #ffeecc;
+    color: #cc6600;
 }
 
 .service-title {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #111827;
-    margin-bottom: 0.5rem;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
     margin-top: 0;
 }
 
 .service-desc {
-    font-size: 0.75rem;
-    color: #4b5563;
-    margin-bottom: 0.75rem;
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 8px;
 }
 
 .apply-button {
     width: 100%;
-    font-size: 0.75rem;
-    background-color: #2563eb;
+    font-size: 11px;
+    background-color: #4a6fa5;
     color: white;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #1d4ed8;
+    padding: 5px 8px;
+    border: 1px solid #36537c;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .apply-button:hover {
-    background-color: #1d4ed8;
+    background-color: #36537c;
 }
 
 /* Recent Activity */
 .activity-card {
-    background-color: #f9fafb;
-    border: 1px solid #d1d5db;
+    background-color: white;
+    border: 1px solid #ccc;
 }
 
 .activity-list {
-    padding: 1rem;
+    padding: 10px;
 }
 
 .activity-item {
-    padding-bottom: 0.75rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #d1d5db;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ddd;
 }
 
 .activity-item:last-child {
@@ -316,32 +298,29 @@
 }
 
 .activity-title {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #111827;
-    margin: 0 0 0.25rem 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 3px 0;
 }
 
 .activity-date {
-    font-size: 0.75rem;
-    color: #6b7280;
-    margin: 0 0 0.5rem 0;
+    font-size: 10px;
+    color: #666;
+    margin: 0 0 5px 0;
 }
 
 .status-completed {
-    border-color: #22c55e;
-    background-color: #f0fdf4;
-    color: #15803d;
+    background-color: #ccffcc;
+    color: #006600;
 }
 
 .status-progress {
-    border-color: #3b82f6;
-    background-color: #eff6ff;
-    color: #1d4ed8;
+    background-color: #cce6ff;
+    color: #0066cc;
 }
 
 .status-review {
-    border-color: #eab308;
-    background-color: #fefce8;
-    color: #a16207;
+    background-color: #ffeecc;
+    color: #cc6600;
 }

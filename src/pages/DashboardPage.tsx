@@ -1,14 +1,4 @@
 import React, { useState } from 'react';
-import {
-    LogOut,
-    Home,
-    FileText,
-    Settings,
-    CreditCard,
-    Car,
-    Building,
-    User
-} from 'lucide-react';
 import './DashboardPage.css';
 
 interface DashboardPageProps {
@@ -19,58 +9,50 @@ function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
     const [activeTab, setActiveTab] = useState<string>('dashboard');
 
     const menuItems = [
-        { id: 'dashboard', label: 'Dashboard', icon: Home },
-        { id: 'applications', label: 'My Applications', icon: FileText },
-        { id: 'settings', label: 'Settings', icon: Settings },
+        { id: 'dashboard', label: 'Dashboard' },
+        { id: 'applications', label: 'My Applications' },
+        { id: 'settings', label: 'Settings' },
     ];
 
     const services = [
         {
             title: 'Apply for Aadhaar Card',
             description: 'Apply for new Aadhaar or update existing information',
-            icon: CreditCard,
             status: 'Available'
         },
         {
             title: 'Driving License',
             description: 'Apply for new license or renew existing license',
-            icon: Car,
             status: 'Available'
         },
         {
             title: 'Property Registration',
             description: 'Register property documents and land records',
-            icon: Building,
             status: 'Available'
         },
         {
             title: 'Passport Services',
             description: 'Apply for new passport or renewal services',
-            icon: User,
             status: 'Coming Soon'
         },
         {
             title: 'Voter ID Card',
             description: 'Apply for voter registration and ID card',
-            icon: CreditCard,
             status: 'Available'
         },
         {
             title: 'Income Tax Services',
             description: 'File income tax returns and view tax history',
-            icon: FileText,
             status: 'Available'
         },
         {
             title: 'Birth Certificate',
             description: 'Apply for birth certificate or corrections',
-            icon: FileText,
             status: 'Available'
         },
         {
             title: 'Marriage Certificate',
             description: 'Register marriage and obtain certificate',
-            icon: User,
             status: 'Available'
         }
     ];
@@ -86,7 +68,7 @@ function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
             {/* Header */}
             <header className="dashboard-header">
                 <div className="header-title-container">
-                    <h1 className="header-title">Government of India - CitizenPortal</h1>
+                    <h1 className="header-title">CitizenPortal</h1>
                 </div>
                 <div className="header-user-info">
                     <span className="user-name">Welcome, John Praneeth</span>
@@ -101,14 +83,12 @@ function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
                         <nav>
                             <ul className="nav-list">
                                 {menuItems.map((item) => {
-                                    const IconComponent = item.icon;
                                     return (
                                         <li key={item.id}>
                                             <button
                                                 onClick={() => setActiveTab(item.id)}
                                                 className={`nav-button ${activeTab === item.id ? 'active' : ''}`}
                                             >
-                                                <IconComponent className="nav-icon" />
                                                 {item.label}
                                             </button>
                                         </li>
@@ -123,7 +103,6 @@ function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
                             onClick={onLogout}
                             className="logout-button"
                         >
-                            <LogOut className="logout-icon" />
                             Logout
                         </button>
                     </div>
@@ -163,13 +142,11 @@ function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
 
                                     <div className="services-grid">
                                         {services.map((service, index) => {
-                                            const IconComponent = service.icon;
                                             const statusClass = service.status === 'Available' ? 'status-available' : 'status-coming-soon';
 
                                             return (
                                                 <div key={index} className="service-card">
                                                     <div className="service-header">
-                                                        <IconComponent className="service-icon" />
                                                         <span className={`status-badge ${statusClass}`}>
                                                             {service.status}
                                                         </span>
@@ -181,7 +158,7 @@ function DashboardPage({ onLogout }: DashboardPageProps): React.ReactElement {
                                                         {service.description}
                                                     </p>
                                                     <button className="apply-button">
-                                                        Apply Now →
+                                                        Apply Now
                                                     </button>
                                                 </div>
                                             );

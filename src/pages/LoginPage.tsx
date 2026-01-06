@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { AlertCircle } from 'lucide-react';
 import './LoginPage.css';
 
 interface LoginPageProps {
@@ -39,11 +38,10 @@ function LoginPage({ onLogin }: LoginPageProps): React.ReactElement {
                 {/* Header */}
                 <div className="login-header">
                     <div className="header-banner">
-                        <h1 className="header-title">Government of India</h1>
-                        <h2 className="header-subtitle">CitizenPortal</h2>
+                        <h1 className="header-title">CitizenPortal</h1>
                     </div>
                     <p className="header-notice">
-                        Official Government Portal for Citizen Services
+                        Official Portal for Citizen Services
                     </p>
                 </div>
 
@@ -82,8 +80,7 @@ function LoginPage({ onLogin }: LoginPageProps): React.ReactElement {
 
                         {error && (
                             <div className="error-alert">
-                                <AlertCircle className="error-icon" />
-                                <span className="error-text">{error}</span>
+                                <strong>Error:</strong> {error}
                             </div>
                         )}
 
@@ -94,10 +91,7 @@ function LoginPage({ onLogin }: LoginPageProps): React.ReactElement {
                                 className="submit-button"
                             >
                                 {isLoading ? (
-                                    <div className="loading-spinner">
-                                        <div className="spinner"></div>
-                                        Please Wait...
-                                    </div>
+                                    <span>Please Wait...</span>
                                 ) : (
                                     'LOGIN'
                                 )}
@@ -116,7 +110,7 @@ function LoginPage({ onLogin }: LoginPageProps): React.ReactElement {
                 <div className="login-footer">
                     <div className="footer-content">
                         <p className="footer-text">
-                            © 2025 Government of India. All Rights Reserved.<br />
+                            © 2025 CitizenPortal. All Rights Reserved.<br />
                             Best viewed in Chrome, Firefox, Safari, Edge
                         </p>
                     </div>
